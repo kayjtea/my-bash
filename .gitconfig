@@ -1,0 +1,29 @@
+[user]
+	email = kim.tran@finomial.com
+	name = Kimberly Tran
+[core]
+	autocrlf = input
+
+[alias]
+	pub = push -u origin HEAD
+	l =   log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
+	ld =  log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
+	lds = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
+	ll =  log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat --date=short
+	lnc = log --pretty=format:"%h\\ %s\\ [%cn]"
+	le =  log --oneline --decorate
+
+	s = status -s
+
+	assume = update-index --assume-unchanged
+	unassume = update-index --no-assume-unchanged
+	assumed = "!git ls-files -v | grep ^h | cut -c 3-"
+	unassumeall = "!git assumed | xargs git update-index --no-assume-unchanged"
+
+	cam = commit -a -m
+	cm = commit -m
+
+	co = checkout
+	cob = checkout -b
+	la = "!git config -l | grep alias | cut -c 7-"
+	bl = for-each-ref --sort=-committerdate refs/heads/ --format='%(committerdate:short) %(color:blue)[%(authorname)]%(color:reset) %(refname:short) %(color:green)%(upstream:track)'
